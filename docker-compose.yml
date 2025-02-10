@@ -49,8 +49,8 @@ services:
       - "7432:5432"
     environment:
       - POSTGRES_DB=main
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=main
+      - POSTGRES_PASSWORD=main
     healthcheck:
       test: pg_isready -q -d $$POSTGRES_DB -U $$POSTGRES_USER
       timeout: 60s
