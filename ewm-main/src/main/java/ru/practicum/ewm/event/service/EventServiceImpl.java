@@ -114,7 +114,9 @@ public class EventServiceImpl implements EventService {
                 .orElseThrow(() -> new NotFoundException("Пользователь с id: " + userId + " не найден"));
         Category category = categoryRepository.findById(newEventDto.getCategory())
                 .orElseThrow(() -> new NotFoundException("Категория с id: " + newEventDto.getCategory() + "не найдена."));
-
+        if (newEventDto.getEventDate().isBefore(LocalDateTime.now().minusHours(2))) {
+            throw new DateTimeException("Событие не может быть опубликовано ранее чем за 1 час до даты события.");
+        }
         if (newEventDto.getPaid() == null) {
             newEventDto.setPaid(false);
         }
