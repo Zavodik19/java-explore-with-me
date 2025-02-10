@@ -1,7 +1,7 @@
 package ru.practicum.ewm.event.service;
 
 import ru.practicum.ewm.event.dto.*;
-import ru.practicum.ewm.event.model.EventState;
+import ru.practicum.ewm.event.enums.EventState;
 
 import java.time.LocalDateTime;
 import java.util.List;

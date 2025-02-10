@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import ru.practicum.ewm.category.dto.CategoryDto;
-import ru.practicum.ewm.event.model.EventState;
+import ru.practicum.ewm.event.enums.EventState;
 import ru.practicum.ewm.event.model.Location;
 import ru.practicum.ewm.user.dto.UserShortDto;
 

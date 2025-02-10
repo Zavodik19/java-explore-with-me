@@ -1,4 +1,4 @@
-package ru.practicum.ewm.event.dto;
+package ru.practicum.ewm.event.enums;
 
 public enum StateActionAdmin {
     PUBLISH_EVENT,
