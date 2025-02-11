@@ -15,12 +15,12 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/users")
+@RequestMapping("/users/{userId}")
 public class PrivateCommentController {
 
     private final CommentService commentService;
 
-    @PostMapping("/{userId}/events/{eventId}/comments")
+    @PostMapping("/events/{eventId}/comments")
     @ResponseStatus(HttpStatus.CREATED)
     public CommentDto createComment(@RequestBody @Valid NewCommentDto newCommentDto,
                                     @PathVariable Long eventId,
@@ -31,8 +31,8 @@ public class PrivateCommentController {
 
     @PatchMapping("/comments/{commentId}")
     @ResponseStatus(HttpStatus.OK)
-    public CommentDto updateComment(@PathVariable("userId") Long userId,
-                                     @PathVariable("commentId") Long commentId,
+    public CommentDto updateComment(@PathVariable Long userId,
+                                     @PathVariable Long commentId,
                                      @RequestBody @Valid NewCommentDto newCommentDto) {
         log.info("Запрос на обновление комментария с ID={} пользователем ID={}", commentId, userId);
         return commentService.updateComment(userId, commentId, newCommentDto);
@@ -40,8 +40,8 @@ public class PrivateCommentController {
 
     @DeleteMapping("/comments/{commentId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteComment(@PathVariable("userId") Long userId,
-                              @PathVariable("commentId") Long commentId) {
+    public void deleteComment(@PathVariable Long userId,
+                              @PathVariable Long commentId) {
         log.info("Запрос на удаление комментария с ID={} пользователем ID={}", commentId, userId);
         commentService.deleteComment(userId, commentId);
     }

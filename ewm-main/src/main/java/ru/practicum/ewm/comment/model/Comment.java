@@ -1,6 +1,5 @@
 package ru.practicum.ewm.comment.model;
 
-
 import jakarta.persistence.*;
 import lombok.*;
 import ru.practicum.ewm.event.model.Event;
@@ -26,12 +25,10 @@ public class Comment {
 
     @ManyToOne
     @JoinColumn(name = "event_id")
-    @Column(nullable = false)
     private Event event;
 
     @ManyToOne
     @JoinColumn(name = "author_id")
-    @Column(nullable = false)
     private User author;
 
     @Column(nullable = false, name = "created_on")
