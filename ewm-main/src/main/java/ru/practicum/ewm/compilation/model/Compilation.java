@@ -15,9 +15,9 @@ import java.util.List;
 @Table(name = "compilations")
 public class Compilation {
     @Column
-    Boolean pinned;
+    private Boolean pinned;
     @Column
-    String title;
+    private String title;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

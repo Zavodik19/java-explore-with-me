@@ -12,9 +12,9 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 public class NewCompilationDto {
-    List<Long> events;
-    Boolean pinned = false;
+    private List<Long> events;
+    private Boolean pinned = false;
     @NotBlank
     @Size(min = 1, max = 50)
-    String title;
+    private String title;
 }
