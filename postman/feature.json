@@ -537,16 +537,17 @@
           }
         },
         "url": {
-          "raw": "localhost:8080/users/:userId/events/:eventId/comments",
+          "raw": "http://localhost:8080/users/3/events/2/comments",
+          "protocol": "http",
           "host": [
             "localhost"
           ],
           "port": "8080",
           "path": [
             "users",
-            ":userId",
+            "3",
             "events",
-            ":eventId",
+            "2",
             "comments"
           ],
           "query": [
@@ -559,16 +560,6 @@
               "key": "",
               "value": null,
               "disabled": true
-            }
-          ],
-          "variable": [
-            {
-              "key": "userId",
-              "value": ""
-            },
-            {
-              "key": "eventId",
-              "value": ""
             }
           ]
         }
@@ -765,14 +756,14 @@
         "method": "DELETE",
         "header": [],
         "url": {
-          "raw": "localhost:8080/users/2/comments/1",
+          "raw": "localhost:8080/users/3/comments/1",
           "host": [
             "localhost"
           ],
           "port": "8080",
           "path": [
             "users",
-            "2",
+            "3",
             "comments",
             "1"
           ]
