@@ -364,129 +364,6 @@
       "response": []
     },
     {
-      "name": "Add. Событие 2",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "exec": [
-              "pm.test(\"Ответ должен содержать код статуса 201 и данные в формате json\", function () {",
-              "    pm.response.to.have.status(201);  ",
-              "    pm.response.to.be.withBody;",
-              "    pm.response.to.be.json;",
-              "});",
-              "",
-              "const source = JSON.parse(pm.request.body.raw);",
-              "const target = pm.response.json();",
-              "",
-              "pm.test(\"Событие должно содержать поля: id, title, annotation, category, paid, eventDate, initiator, description, participantLimit, state, createdOn, location, requestModeration\", function () {",
-              "pm.expect(target).to.have.property('id');",
-              "pm.expect(target).to.have.property('title');",
-              "pm.expect(target).to.have.property('annotation');",
-              "pm.expect(target).to.have.property('category');",
-              "pm.expect(target).to.have.property('paid');",
-              "pm.expect(target).to.have.property('eventDate');",
-              "pm.expect(target).to.have.property('initiator');",
-              "pm.expect(target).to.have.property('description');",
-              "pm.expect(target).to.have.property('participantLimit');",
-              "pm.expect(target).to.have.property('state');",
-              "pm.expect(target).to.have.property('createdOn');",
-              "pm.expect(target).to.have.property('location');",
-              "pm.expect(target).to.have.property('requestModeration');",
-              "});",
-              ""
-            ],
-            "type": "text/javascript",
-            "packages": {}
-          }
-        }
-      ],
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n    \"annotation\": \"Фестиваль альтернативной музыки\",\n    \"category\": 1,\n    \"description\": \"Присоединяйтесь к нам на уникальном фестивале альтернативной музыки, где выступят талантливые артисты со всего мира. Откройте для себя новые звучания и насладитесь атмосферой творчества и свободы. Удивительные выступления, мастер-классы и много сюрпризов ждут вас!\",\n    \"eventDate\": \"2025-06-10 18:00:00\",\n    \"location\": {\n        \"lat\": 52.32,\n        \"lon\": 21.44\n    },\n    \"title\": \"Альтернативный звук: Фестиваль 2025\"\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "localhost:8080/users/:userId/events",
-          "host": [
-            "localhost"
-          ],
-          "port": "8080",
-          "path": [
-            "users",
-            ":userId",
-            "events"
-          ],
-          "variable": [
-            {
-              "key": "userId",
-              "value": "1"
-            }
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Aproove. Событие 2",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "exec": [
-              "pm.test(\"Ответ должен содержать код статуса 200 и данные в формате json\", function () {\r",
-              "    pm.response.to.be.ok;    \r",
-              "    pm.response.to.be.withBody;\r",
-              "    pm.response.to.be.json;\r",
-              "});"
-            ],
-            "type": "text/javascript",
-            "packages": {}
-          }
-        }
-      ],
-      "request": {
-        "method": "PATCH",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"stateAction\": \"PUBLISH_EVENT\"\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "http://localhost:8080/admin/events/:eventId",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "8080",
-          "path": [
-            "admin",
-            "events",
-            ":eventId"
-          ],
-          "variable": [
-            {
-              "key": "eventId",
-              "value": "2"
-            }
-          ]
-        }
-      },
-      "response": []
-    },
-    {
       "name": "Add. Комментарий 1",
       "event": [
         {
@@ -537,7 +414,7 @@
           }
         },
         "url": {
-          "raw": "http://localhost:8080/users/3/events/2/comments",
+          "raw": "http://localhost:8080/users/3/events/1/comments",
           "protocol": "http",
           "host": [
             "localhost"
@@ -547,7 +424,7 @@
             "users",
             "3",
             "events",
-            "2",
+            "1",
             "comments"
           ],
           "query": [
@@ -610,7 +487,7 @@
           }
         },
         "url": {
-          "raw": "http://localhost:8080/users/2/events/2/comments",
+          "raw": "http://localhost:8080/users/2/events/1/comments",
           "protocol": "http",
           "host": [
             "localhost"
@@ -620,7 +497,7 @@
             "users",
             "2",
             "events",
-            "2",
+            "1",
             "comments"
           ]
         }
@@ -722,14 +599,14 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "localhost:8080/events/2/comments",
+          "raw": "localhost:8080/events/1/comments",
           "host": [
             "localhost"
           ],
           "port": "8080",
           "path": [
             "events",
-            "2",
+            "1",
             "comments"
           ]
         }
