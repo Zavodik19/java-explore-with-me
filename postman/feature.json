@@ -291,21 +291,15 @@
           }
         },
         "url": {
-          "raw": "localhost:8080/users/:userId/events",
+          "raw": "localhost:8080/users/1/events",
           "host": [
             "localhost"
           ],
           "port": "8080",
           "path": [
             "users",
-            ":userId",
+            "1",
             "events"
-          ],
-          "variable": [
-            {
-              "key": "userId",
-              "value": "1"
-            }
           ]
         }
       },
