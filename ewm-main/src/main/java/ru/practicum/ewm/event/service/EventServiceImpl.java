@@ -224,18 +224,14 @@ public class EventServiceImpl implements EventService {
     @Override
     public EventFullDto updateEventByAdmin(Long eventId, UpdateEventAdminRequest updateEvent) {
         Event event = eventRepository.findById(eventId)
-                .orElseThrow(() -> new NotFoundException("Событие с id: \" + eventId + \" не найдено."));
+                .orElseThrow(() -> new NotFoundException("Событие с id: " + eventId + " не найдено."));
 
         if (updateEvent.getStateAction() != null) {
-            if (event.getEventDate().isBefore(LocalDateTime.now().plusHours(1)) &&
-                    updateEvent.getStateAction().equals(StateActionAdmin.PUBLISH_EVENT)) {
-                throw new DateTimeException("Дата начала события слишком ранняя.");
-            }
-
             if (updateEvent.getStateAction().equals(StateActionAdmin.PUBLISH_EVENT)) {
                 if (!event.getState().equals(EventState.PENDING)) {
                     throw new ValidationException("Событие не может быть опубликовано, если оно не в состоянии ожидания.");
                 }
+
                 event.setState(EventState.PUBLISHED);
                 event.setPublishedOn(LocalDateTime.now());
             } else {
