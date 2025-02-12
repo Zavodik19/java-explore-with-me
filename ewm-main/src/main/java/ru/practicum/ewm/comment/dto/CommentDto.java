@@ -1,6 +1,7 @@
 package ru.practicum.ewm.comment.dto;
 
 import lombok.*;
+import ru.practicum.ewm.event.dto.EventShortDto;
 
 import java.time.LocalDateTime;
 
@@ -14,6 +15,7 @@ public class CommentDto {
     private String text;
     private Long eventId;
     private Long authorId;
+    private EventShortDto event;
     private String authorName;
     private LocalDateTime createdOn;
 }

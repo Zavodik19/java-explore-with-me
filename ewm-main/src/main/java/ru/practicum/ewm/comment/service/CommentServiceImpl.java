@@ -46,8 +46,15 @@ public class CommentServiceImpl implements CommentService {
             throw new ValidationException("Инициатор не может оставить комментарий к своему мероприятию");
         }
 
+        log.debug("Создаем комментарий: {}", newCommentDto);
+        log.debug("Событие найдено: {}", event);
+        log.debug("Автор найден: {}", user);
         Comment comment = CommentMapper.toComment(newCommentDto, event, user);
+        log.debug("Комментарий перед сохранением: {}", comment);
+
         comment = commentRepository.save(comment);
+        log.debug("Комментарий после сохранения: {}", comment);
+
         log.info("Комментарий успешно добавлен пользователем с ID={} и именем {} к событию с ID={}",
                 userId, user.getName(), eventId);
         return CommentMapper.toCommentDto(comment);

@@ -3,6 +3,7 @@ package ru.practicum.ewm.comment.mapper;
 import ru.practicum.ewm.comment.dto.CommentDto;
 import ru.practicum.ewm.comment.dto.NewCommentDto;
 import ru.practicum.ewm.comment.model.Comment;
+import ru.practicum.ewm.event.dto.EventShortDto;
 import ru.practicum.ewm.event.model.Event;
 import ru.practicum.ewm.user.model.User;
 
@@ -20,6 +21,11 @@ public class CommentMapper {
     }
 
     public static CommentDto toCommentDto(Comment comment) {
+        EventShortDto eventShortDto = EventShortDto.builder()
+                .id(comment.getEvent().getId())
+                .title(comment.getEvent().getTitle())
+                .build();
+
         return CommentDto.builder()
                 .id(comment.getId())
                 .eventId(comment.getEvent().getId())
@@ -27,6 +33,7 @@ public class CommentMapper {
                 .authorId(comment.getAuthor().getId())
                 .authorName(comment.getAuthor().getName())
                 .createdOn(comment.getCreatedOn())
+                .event(eventShortDto)
                 .build();
     }
 }
