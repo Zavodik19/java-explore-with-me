@@ -12,12 +12,10 @@ import ru.practicum.ewm.comment.model.Comment;
 import ru.practicum.ewm.comment.repository.CommentRepository;
 import ru.practicum.ewm.event.model.Event;
 import ru.practicum.ewm.event.repository.EventRepository;
-import ru.practicum.ewm.event.service.EventService;
 import ru.practicum.ewm.exception.NotFoundException;
 import ru.practicum.ewm.exception.ValidationException;
 import ru.practicum.ewm.user.model.User;
 import ru.practicum.ewm.user.repository.UserRepository;
-import ru.practicum.ewm.user.service.UserService;
 
 import java.util.List;
 import java.util.stream.Collectors;
