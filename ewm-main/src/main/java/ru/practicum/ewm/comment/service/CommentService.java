@@ -19,4 +19,3 @@ public interface CommentService {
 
     void deleteCommentByAdmin(Long commentId);
 }
-

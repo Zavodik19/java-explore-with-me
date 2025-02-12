@@ -32,8 +32,8 @@ public class PrivateCommentController {
     @PatchMapping("/comments/{commentId}")
     @ResponseStatus(HttpStatus.OK)
     public CommentDto updateComment(@PathVariable Long userId,
-                                     @PathVariable Long commentId,
-                                     @RequestBody @Valid NewCommentDto newCommentDto) {
+                                    @PathVariable Long commentId,
+                                    @RequestBody @Valid NewCommentDto newCommentDto) {
         log.info("Запрос на обновление комментария с ID={} пользователем ID={}", commentId, userId);
         return commentService.updateComment(userId, commentId, newCommentDto);
     }
