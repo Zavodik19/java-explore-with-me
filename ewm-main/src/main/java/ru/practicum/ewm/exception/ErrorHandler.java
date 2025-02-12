@@ -59,7 +59,7 @@ public class ErrorHandler {
     @ExceptionHandler
     @ResponseStatus(HttpStatus.CONFLICT)
     public ApiError handleDataTimeException(ValidationException e) {
-        log.error("400 {} ", e.getMessage());
+        log.error("409 {} ", e.getMessage());
         return ApiError.builder()
                 .status(HttpStatus.BAD_REQUEST.name())
                 .reason("Incorrectly made request")

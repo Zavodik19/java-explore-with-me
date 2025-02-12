@@ -473,67 +473,6 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\n    \"text\": \"Ерунда какая-то! Кто туда пойдет вообще\"\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "http://localhost:8080/users/2/events/1/comments",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "8080",
-          "path": [
-            "users",
-            "2",
-            "events",
-            "1",
-            "comments"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Add. Комментарий 3",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "exec": [
-              "const source = JSON.parse(pm.request.body.raw)",
-              "",
-              "pm.test(\"Status code is 200 or 201\", function () {",
-              "    pm.expect(pm.response.code).to.be.oneOf([200,201]);",
-              "});",
-              "pm.test(\"Has comment create response\", function () {",
-              "    pm.response.to.be.withBody;",
-              "    pm.response.to.be.json;",
-              "});",
-              "pm.test(\"Test comment 'id' field\", function () {",
-              "    var jsonData = pm.response.json();",
-              "    pm.expect(jsonData).to.have.property('id');",
-              "});",
-              "pm.test(\"Test comment 'text' field\", function () {",
-              "    var jsonData = pm.response.json();",
-              "    pm.expect(jsonData).to.have.property('text');",
-              "    pm.expect(jsonData.text, `\"text\" must be \"${source.text}\"`).to.eql(source.text);",
-              "});"
-            ],
-            "type": "text/javascript",
-            "packages": {}
-          }
-        }
-      ],
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
           "raw": "{\n    \"text\": \"Говорят, что в следующем году будет такой же фестиваль\"\n}",
           "options": {
             "raw": {
